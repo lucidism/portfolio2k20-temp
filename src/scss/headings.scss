@@ -1,0 +1,67 @@
+/* HEADINGS */
+h1 {
+    font: 500 36px 'Gelion';
+    margin: 0;
+    line-height: 75%;
+}
+
+h3 {
+    font: 500 30px 'Gelion';
+    margin: 0;
+}
+
+p {
+    opacity: 0.75;
+    margin: 20px 0 0;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+
+    &.main-desc {
+        max-width: 420px;
+    }
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+
+    &.btn {
+        font: 500 18px 'Gelion';
+        padding: 8px 30px 14px;
+        border: 1px solid white;
+
+        transition: 0.4s ease color, 0.4s ease background-color;
+
+        &:hover, &:focus {
+            background-color: white;
+            color: black;
+        }
+    }
+
+    &.icon {
+        width: 30px;
+        height: 30px;
+        opacity: 0.5;
+
+        transition: 0.4s ease opacity;
+
+        &:hover, &:focus {
+            opacity: 1;
+        }
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+span.separator {
+    display: inline-block;
+    margin: 30px 0;
+    width: 50px;
+    height: 1px;
+    background: white;
+}

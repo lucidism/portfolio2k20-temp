@@ -1,0 +1,34 @@
+/* FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 40px;
+
+    display: flex;
+    align-items: flex-end;
+
+    .borders {
+        user-select: none;
+
+        span {
+            display: inline-block;
+            height: 3px;
+            width: 16px;
+            background: white;
+            margin-right: 2px;
+        }
+    }
+
+    ul.social {
+        display: flex;
+        list-style: none;
+        margin: 0 0 5px 50px;
+        padding: 0;
+
+        li {
+            margin-right: 25px;
+            padding: 0;
+        }
+    }
+}

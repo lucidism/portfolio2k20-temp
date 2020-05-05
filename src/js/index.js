@@ -1,7 +1,6 @@
-let cols, rows, tileSize;
-let rects = [];
+// const p5 = require("p5");
+
 let mouse;
-let bgShader, bg;
 let tweens = {
     fadeIn: 0
 };
@@ -16,48 +15,46 @@ window.addEventListener("load", () => {
     });
 });
 
-function preload() {
-    bgShader = loadShader('assets/shader/bg.vert', 'assets/shader/bg.frag');
-}
+const sketch = (p) => {
+    let bgShader;
+    let tileSize, cols, rows;
+    let rects = [];
 
-function setup() {
-    createCanvas(windowWidth, windowHeight, WEBGL);
-    bg = createGraphics(windowWidth, windowHeight, WEBGL);
-    bg.canvas.remove();
+    p.preload = () => {
+        bgShader = p.loadShader('assets/shader/bg.vert', 'assets/shader/bg.frag');
+    };
 
-    // create mouse object
-    mouse = new Mouse();
+    p.setup = () => {
+        p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
 
-    tileSize = 30;
-    cols = round(width / tileSize);
-    rows = round(height / tileSize);
+        tileSize = 30;
+        cols = Math.round(p.width / tileSize);
+        rows = Math.round(p.height / tileSize);
 
-    for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-            rects[j+(i*rows)] = new Rectangle(i, j, cols, rows);
+        for (let i = 0; i < cols; i++) {
+            for (let j = 0; j < rows; j++) {
+                // rects[j+(i*rows)] = new Rectangle(i, j, cols, rows);
+            }
         }
-    }
-}
+    };
 
-function draw() {
-    background(0);
+    p.draw = () => {
+        p.background(0);
 
-    // draw background layer
-    bgShader.setUniform("u_resolution", [width, height]);
-    bgShader.setUniform("u_time", millis() / 1000.0);
-    bgShader.setUniform("u_fadein", tweens.fadeIn);
-    shader(bgShader);
-    quad(-1, -1, 1, -1, 1, 1, -1, 1);
-}
+        // draw background layer
+        bgShader.setUniform("u_resolution", [p.width, p.height]);
+        bgShader.setUniform("u_time", p.millis() / 1000.0);
+        bgShader.setUniform("u_fadein", tweens.fadeIn);
+        p.shader(bgShader);
+        p.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+    };
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    p.windowResized = () => {
+        p.resizeCanvas(p.windowWidth, p.windowHeight);
+    };
+};
 
-    let newBG = createGraphics(windowWidth, windowHeight, WEBGL);
-    newBG.canvas.remove();
-    newBG.image(bg, 0, 0, newBG.width, newBG.height);
-    bg = newBG;
-}
+new p5(sketch);
 
 class Rectangle {
     constructor(i, j, cols, rows) {
