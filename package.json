@@ -6,8 +6,9 @@
   "main": "src/js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "concurrently \"npm run script\" \"npm run sass\"",
-    "script": "webpack",
+    "dev": "cross-env NODE_ENV='development' concurrently \"npm run script\" \"npm run sass\"",
+    "prod": "cross-env NODE_ENV='production' concurrently \"npm run script\" \"npm run sass\"",
+    "script": "babel-node tools/tasks/script",
     "sass": "babel-node tools/tasks/sass"
   },
   "author": "",
@@ -25,6 +26,7 @@
     "autoprefixer": "^9.7.6",
     "babel-loader": "^8.1.0",
     "chalk": "^4.0.0",
+    "chokidar": "^3.4.0",
     "clean-css": "^4.2.3",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
