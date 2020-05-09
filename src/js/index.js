@@ -1,15 +1,11 @@
 // const p5 = require("p5");
 import sketch from './Sketch';
-import tweens from './tweens';
+import Content from './Content';
+import Footer from './Footer';
 
 window.addEventListener("load", () => {
-    anime({
-        targets: tweens,
-        fadeIn: 1,
-        duration: 2000,
-        easing: 'linear',
-        delay: 1000
-    });
-
+    const content = new Content();
     new p5(sketch);
+
+    setTimeout(() => content.play(), 200);
 });
