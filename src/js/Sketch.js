@@ -1,4 +1,4 @@
-import Rectangle from './Rectangle';
+import Rectangle from './components/Rectangle';
 import tweens from './tweens';
 
 const sketch = (p) => {
