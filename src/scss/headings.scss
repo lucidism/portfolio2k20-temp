@@ -17,7 +17,13 @@ p {
     letter-spacing: 0.02em;
 
     &.main-desc {
-        max-width: 420px;
+        max-width: 400px;
+
+        span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+        }
     }
 }
 
@@ -64,4 +70,6 @@ span.separator {
     width: 50px;
     height: 1px;
     background: white;
+    transform-origin: 50%;
+    transform: scaleX(0);
 }
