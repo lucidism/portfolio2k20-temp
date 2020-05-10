@@ -108,6 +108,18 @@ eval("var E = __webpack_require__(/*! ./index.js */ \"./node_modules/tiny-emitte
 
 /***/ }),
 
+/***/ "./src/js/AutoTitle.js":
+/*!*****************************!*\
+  !*** ./src/js/AutoTitle.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar AutoTitle = /*#__PURE__*/function () {\n  function AutoTitle() {\n    _classCallCheck(this, AutoTitle);\n\n    this.i = 0;\n    this.len = 10;\n    this.startTime = new Date();\n    this.update();\n  }\n\n  _createClass(AutoTitle, [{\n    key: \"update\",\n    value: function update() {\n      this.i = Math.floor((new Date() - this.startTime) / 1000 * (1000 / 190));\n      var s = \"\";\n\n      for (var i = 0; i < this.len; i++) {\n        s += Math.abs(this.i - i) % 4 !== 0 ? Math.abs(this.i - i) % 4 === 2 ? \"\\u2593\" : \"\\u2592\" : \"\\u2591\";\n      }\n\n      document.title = s;\n      requestAnimationFrame(this.update.bind(this));\n    }\n  }]);\n\n  return AutoTitle;\n}();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (AutoTitle);\n\n//# sourceURL=webpack:///./src/js/AutoTitle.js?");
+
+/***/ }),
+
 /***/ "./src/js/Content.js":
 /*!***************************!*\
   !*** ./src/js/Content.js ***!
@@ -176,7 +188,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(inst
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tiny-emitter/instance */ \"./node_modules/tiny-emitter/instance.js\");\n/* harmony import */ var tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Sketch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sketch */ \"./src/js/Sketch.js\");\n/* harmony import */ var _Content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Content */ \"./src/js/Content.js\");\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Footer */ \"./src/js/Footer.js\");\n// const p5 = require(\"p5\");\n\n\n\n\nwindow.addEventListener(\"load\", function () {\n  var content = new _Content__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n  var footer = new _Footer__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n  var sk = new p5(_Sketch__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n  tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0___default.a.on(\"play-footer\", footer.display.bind(footer));\n  setTimeout(function () {\n    document.body.classList.remove('hidden');\n    content.display();\n  }, 200);\n});\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tiny-emitter/instance */ \"./node_modules/tiny-emitter/instance.js\");\n/* harmony import */ var tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Sketch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sketch */ \"./src/js/Sketch.js\");\n/* harmony import */ var _Content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Content */ \"./src/js/Content.js\");\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Footer */ \"./src/js/Footer.js\");\n/* harmony import */ var _AutoTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AutoTitle */ \"./src/js/AutoTitle.js\");\n// const p5 = require(\"p5\");\n\n\n\n\n\nvar autoTitle = new _AutoTitle__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\nwindow.addEventListener(\"load\", function () {\n  var content = new _Content__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n  var footer = new _Footer__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n  var sk = new p5(_Sketch__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n  tiny_emitter_instance__WEBPACK_IMPORTED_MODULE_0___default.a.on(\"play-footer\", footer.display.bind(footer));\n  setTimeout(function () {\n    document.body.classList.remove('hidden');\n    content.display();\n  }, 200);\n});\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 
