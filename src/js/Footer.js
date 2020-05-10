@@ -18,7 +18,7 @@ class Footer {
             duration: 700,
             easing: 'easeOutCirc',
             delay: anime.stagger(100),
-            begin: () => this.bordersTL.play(),
+            begin: ::this.bordersTL.play
         })
         .add({
             targets: this.social,

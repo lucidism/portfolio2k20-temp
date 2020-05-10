@@ -4,6 +4,7 @@ body {
     color: white;
     font: normal 13px 'Object Sans';
     position: relative;
+    overflow-x: hidden;
 
     .container {
         width: 100%;
@@ -16,6 +17,19 @@ body {
         text-align: center;
 
         padding: 60px 20px 20px;
+    }
+
+    &.hidden::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        background: black;
     }
 }
 

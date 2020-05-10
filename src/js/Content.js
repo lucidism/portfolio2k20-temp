@@ -1,5 +1,6 @@
 import tweens from './tweens';
 import Button from './components/Button';
+import emitter from 'tiny-emitter/instance';
 
 class Content {
     constructor() {
@@ -27,9 +28,9 @@ class Content {
         // show main title
         this.tl.add({
             targets: this.title,
-            duration: 900,
+            duration: 800,
             opacity: [0, 1],
-            easing: 'linear'
+            easing: 'easeInOutQuad'
         }, 0)
         // reposition entire container
         .add({
@@ -37,7 +38,7 @@ class Content {
             duration: 1300,
             translateY: ['50%', '0%'],
             easing: 'easeInOutCubic'
-        }, '-=250')
+        })
         // main paragraph
         .add({
             targets: [this.paragraph.querySelectorAll('span'), this.subParagraph],
@@ -56,7 +57,7 @@ class Content {
         }, '-=500')
         // button
         .add({
-            begin: () => this.button.display(),
+            begin: ::this.button.display,
             duration: 10,
         }, '-=500')
         // bgShader visibility
@@ -64,7 +65,8 @@ class Content {
             targets: tweens,
             fadeIn: 1,
             duration: 2000,
-            easing: 'linear'
+            easing: 'linear',
+            complete: () => emitter.emit("play-footer")
         }, 2000);
     }
 

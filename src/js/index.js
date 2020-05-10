@@ -1,4 +1,5 @@
 // const p5 = require("p5");
+import emitter from 'tiny-emitter/instance';
 import sketch from './Sketch';
 import Content from './Content';
 import Footer from './Footer';
@@ -8,9 +9,10 @@ window.addEventListener("load", () => {
     const footer  = new Footer();
     const sk = new p5(sketch);
 
+    emitter.on("play-footer", ::footer.display);
+
     setTimeout(() => {
         document.body.classList.remove('hidden');
         content.display();
-        footer.display();
     }, 200);
 });
