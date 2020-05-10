@@ -7,10 +7,13 @@ import AutoTitle from './AutoTitle';
 
 const autoTitle = new AutoTitle();
 
+// browser compatibility
+const isIE = /*@cc_on!@*/false || !!document.documentMode;
+
 window.addEventListener("load", () => {
     const content = new Content();
     const footer  = new Footer();
-    const sk = new p5(sketch);
+    const sk = isIE ? null : new p5(sketch);
 
     emitter.on("play-footer", ::footer.display);
 

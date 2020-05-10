@@ -21,6 +21,21 @@ float map (float val, float l1, float h1, float l2, float h2) {
     return l2 + (h2 - l2) * ((val - l1) / (l2 - l1));
 }
 
+// noise
+float rand(vec2 n) { 
+	return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+float noise(vec2 p){
+	vec2 ip = floor(p);
+	vec2 u = fract(p);
+	u = u*u*(3.0-2.0*u);
+	
+	float res = mix(
+		mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
+		mix(rand(ip+vec2(0.0,1.0)),rand(ip+vec2(1.0,1.0)),u.x),u.y);
+	return res*res;
+}
+
 
 // uniforms
 uniform vec2 u_resolution;
@@ -67,7 +82,7 @@ void main() {
     float lingrad = (st.x + (1.0 - st.y)) / (1.0 + ratio);
     outColor += mix(vec4(c3.rgb*c3.a, c3.a*2.0), vec4(c4.rgb*c3.a, c4.a*2.0), lingrad); // more like leningrad haha am i right fellas
 
-    // pixelated veil
+    // pixelated overlay
     float size = 40.0;
     vec2 pq;
     vec2 cr = vec2(floor(u_resolution.x / size), floor(u_resolution.y / size));
@@ -79,6 +94,10 @@ void main() {
     float dir = mod(pq.y, 0.2) > 0.1 ? 1.0 : -1.0;
     float px = mod(pq.x - (dir*mod(pq.y, 0.1)/2.0) + (dir*u_time/(sin(pq.y*3000.0)+3.0)) - (dir*pq.y*2.0), 1.0);
     outColor.rgb *= px;
+
+    // noise veil
+    float a = 4.0;
+    outColor.rgb *= pow(noise((st + (floor(u_time * 10.0) / 10.0))*1000.0), 0.8) / a + ((a-1.)/a);
 
     // exports
     outColor.rgb *= u_fadein;
