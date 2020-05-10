@@ -1,7 +1,12 @@
-@import './normalize.scss';
-@import './reset.scss';
-@import './fonts.scss';
+// RESET
+@import 'normalize';
+@import 'reset';
 
-@import './body.scss';
-@import './headings.scss';
-@import './footer.scss';
+// SETTINGS
+@import 'variables';
+@import 'fonts';
+
+// ELEMENTS
+@import 'body';
+@import 'headings';
+@import 'footer';

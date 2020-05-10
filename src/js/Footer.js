@@ -5,7 +5,6 @@ class Footer {
         this.borders = this.$el.querySelectorAll('.borders > span');
         this.social = this.$el.querySelectorAll('ul.social li');
 
-        this.buildBordersTL();
         this.buildTL();
     }
 
@@ -14,11 +13,10 @@ class Footer {
 
         this.tl.add({
             targets: this.h1.querySelectorAll('.mask > .content'),
-            translateY: ['100%', '0%'],
+            translateY: ['110%', '0%'],
             duration: 700,
             easing: 'easeOutCirc',
-            delay: anime.stagger(100),
-            begin: ::this.bordersTL.play
+            delay: anime.stagger(100)
         })
         .add({
             targets: this.social,
@@ -27,21 +25,6 @@ class Footer {
             easing: 'linear',
             delay: anime.stagger(200)
         }, '-=200');
-    }
-
-    buildBordersTL() {
-        this.bordersTL = anime.timeline({
-            targets: this.borders,
-            duration: 800,
-            easing: 'easeOutCubic',
-            delay: anime.stagger(100),
-            autoplay: false,
-            loop: false
-        });
-
-        this.bordersTL.add({
-            scaleX: [0, 1]
-        }, 200);
     }
 
     display() {

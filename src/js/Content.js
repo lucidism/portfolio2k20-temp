@@ -8,7 +8,7 @@ class Content {
         this.$el = document.querySelector('div.content');
         this.textContent = this.$el.querySelector('.text');
         this.title = this.textContent.querySelector('h3');
-        this.paragraph = this.textContent.querySelector('p.main-desc');
+        this.paragraph = this.textContent.querySelector(window.innerWidth <= 640 ? 'p.main-desc.mobile' : 'p.main-desc.desktop');
         this.subParagraph = this.textContent.querySelector('p:last-of-type');
         this.separator = this.textContent.querySelector('span.separator');
         this.button = new Button(this.$el.querySelector('a.btn'));

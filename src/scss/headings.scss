@@ -4,7 +4,12 @@ h1 {
     margin: 0;
     line-height: 75%;
 
-    .mask { padding-bottom: 1%; }
+    .mask {
+        padding-bottom: 1%;
+        @media #{$mobilelandscape} {
+            padding-bottom: 0.6vw;
+        }
+    }
 }
 
 h3 {
@@ -25,6 +30,15 @@ p {
             display: inline-block;
             opacity: 0;
             transform: translateY(20px);
+        }
+
+        &.mobile {
+            display: none;
+            max-width: 280px;
+        }
+        @media #{$mobilelandscape} {
+            display: none;
+            &.mobile { display: block; }
         }
     }
 }

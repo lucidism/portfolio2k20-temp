@@ -27,6 +27,7 @@ uniform vec2 u_resolution;
 uniform float u_time;
 uniform vec2 u_mouse;
 uniform float u_fadein;
+uniform bool reverse;
 
 // varying
 varying vec2 vTexCoord;
@@ -59,11 +60,9 @@ void main() {
     // halo #1
     float halo1 = 1.0 - clamp(distance(vec2(0.0, 0.0), st) * 2.0, 0.0, 1.0);
     outColor += vec4(c1*pow(halo1, 2.0), halo1/map(cos(u_time/2.0), -1.0, 1.0, 1.0, 4.0));
-
     // halo #2
     float halo2 = 1.0 - clamp(distance(vec2(ratio, sin(u_time) / 2.0 + 0.5), st) * 1.5, 0.0, 1.0);
     outColor += vec4(c2*pow(halo2, 2.0), halo2/map(cos(u_time), -1.0, 1.0, 0.9, 2.0));
-
     // global gradient
     float lingrad = (st.x + (1.0 - st.y)) / (1.0 + ratio);
     outColor += mix(vec4(c3.rgb*c3.a, c3.a*2.0), vec4(c4.rgb*c3.a, c4.a*2.0), lingrad); // more like leningrad haha am i right fellas
@@ -76,10 +75,12 @@ void main() {
     pq = wh * floor(st / wh);
     pq.x /= ratio;
 
+    // crossing lines
     float dir = mod(pq.y, 0.2) > 0.1 ? 1.0 : -1.0;
     float px = mod(pq.x - (dir*mod(pq.y, 0.1)/2.0) + (dir*u_time/(sin(pq.y*3000.0)+3.0)) - (dir*pq.y*2.0), 1.0);
-    outColor.rgb *= px * u_fadein;
+    outColor.rgb *= px;
 
     // exports
+    outColor.rgb *= u_fadein;
     gl_FragColor = outColor;
 }
