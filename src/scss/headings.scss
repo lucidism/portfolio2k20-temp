@@ -35,15 +35,40 @@ a {
     display: inline-block;
 
     &.btn {
-        font: 500 18px 'Gelion';
-        padding: 8px 30px 14px;
-        border: 1px solid white;
+        position: relative;
 
-        transition: 0.4s ease color, 0.4s ease background-color;
+        > .subtext {
+            font: 500 18px 'Gelion';
+            padding: 8px 30px 14px;
+            border: 1px solid white;
+            display: inline-block;
+
+            transition: 0.4s ease color, 0.4s ease background-color;
+        }
 
         &:hover, &:focus {
-            background-color: white;
-            color: black;
+            > .subtext {
+                background-color: white;
+                color: black;
+            }
+        }
+
+        .backdrop {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: 0 100%;
+            background: white;
+        }
+
+        &.hidden {
+            cursor: auto;
+            > .subtext { opacity: 0; }
         }
     }
 

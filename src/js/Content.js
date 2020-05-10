@@ -1,5 +1,5 @@
 import tweens from './tweens';
-import Splitting from 'splitting';
+import Button from './components/Button';
 
 class Content {
     constructor() {
@@ -10,7 +10,7 @@ class Content {
         this.paragraph = this.textContent.querySelector('p.main-desc');
         this.subParagraph = this.textContent.querySelector('p:last-of-type');
         this.separator = this.textContent.querySelector('span.separator');
-        this.button = this.$el.querySelector('a.btn');
+        this.button = new Button(this.$el.querySelector('a.btn'));
 
         this.splitEl(this.paragraph);
 
@@ -53,6 +53,11 @@ class Content {
             duration: 700,
             scaleX: [0, 1],
             easing: 'easeOutCirc',
+        }, '-=500')
+        // button
+        .add({
+            begin: () => this.button.display(),
+            duration: 10,
         }, '-=500')
         // bgShader visibility
         .add({
