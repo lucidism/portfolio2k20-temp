@@ -76,7 +76,7 @@ class Content {
         });
     }
 
-    play() {
+    display() {
         this.tl.play();
     }
 }

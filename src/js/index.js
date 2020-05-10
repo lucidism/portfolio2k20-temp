@@ -5,7 +5,12 @@ import Footer from './Footer';
 
 window.addEventListener("load", () => {
     const content = new Content();
-    new p5(sketch);
+    const footer  = new Footer();
+    const sk = new p5(sketch);
 
-    setTimeout(() => content.play(), 200);
+    setTimeout(() => {
+        document.body.classList.remove('hidden');
+        content.display();
+        footer.display();
+    }, 200);
 });

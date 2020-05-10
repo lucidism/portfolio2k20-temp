@@ -3,6 +3,8 @@ h1 {
     font: 500 36px 'Gelion';
     margin: 0;
     line-height: 75%;
+
+    .mask { padding-bottom: 1%; }
 }
 
 h3 {
@@ -72,4 +74,9 @@ span.separator {
     background: white;
     transform-origin: 50%;
     transform: scaleX(0);
+}
+
+.mask {
+    overflow: hidden;
+    &, & > .content { display: inline-block; }
 }
