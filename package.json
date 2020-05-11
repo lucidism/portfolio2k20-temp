@@ -16,6 +16,7 @@
   "dependencies": {
     "animejs": "^3.2.0",
     "curtainsjs": "^6.0.1",
+    "glslCanvas": "^0.1.7",
     "p5": "^1.0.0",
     "tiny-emitter": "^2.1.0"
   },
@@ -33,8 +34,10 @@
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "fs-extra": "^9.0.0",
+    "glslify-loader": "^2.0.0",
     "node-sass": "^4.14.0",
     "postcss": "^7.0.29",
+    "raw-loader": "^4.0.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "webpack": "^4.43.0",

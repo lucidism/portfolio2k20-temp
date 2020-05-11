@@ -1,3 +1,5 @@
+import anime from 'animejs/lib/anime.es';
+
 class Footer {
     constructor() {
         this.$el = document.querySelector('footer');

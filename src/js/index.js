@@ -1,6 +1,6 @@
 // const p5 = require("p5");
 import emitter from 'tiny-emitter/instance';
-import sketch from './Sketch';
+import Shader from './Shader';
 import Content from './Content';
 import Footer from './Footer';
 import AutoTitle from './AutoTitle';
@@ -13,7 +13,7 @@ const isIE = /*@cc_on!@*/false || !!document.documentMode;
 window.addEventListener("load", () => {
     const content = new Content();
     const footer  = new Footer();
-    const sk = isIE ? null : new p5(sketch);
+    const shader = isIE ? null : new Shader();
 
     emitter.on("play-footer", ::footer.display);
 

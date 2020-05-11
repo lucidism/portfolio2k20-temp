@@ -1,6 +1,7 @@
 import tweens from './tweens';
 import Button from './components/Button';
 import emitter from 'tiny-emitter/instance';
+import anime from 'animejs/lib/anime.es';
 
 class Content {
     constructor() {
@@ -36,14 +37,14 @@ class Content {
         .add({
             targets: this.textContent,
             duration: 1300,
-            translateY: ['50%', '0%'],
+            translateY: [window.innerWidth <= 640 ? '40%' : '50%', '0%'],
             easing: 'easeInOutCubic'
         })
         // main paragraph
         .add({
             targets: [this.paragraph.querySelectorAll('span'), this.subParagraph],
             duration: 800,
-            opacity: [0, 1],
+            opacity: [0, 0.85],
             translateY: [20, 0],
             easing: 'easeOutQuad',
             delay: anime.stagger(100)

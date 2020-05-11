@@ -1,3 +1,5 @@
+import anime from 'animejs/lib/anime.es';
+
 class Button {
     constructor(el) {
         this.el = el;
