@@ -13,4 +13,6 @@ styles are written in SCSS in `src/sass` and compiled with node-sass; scripts ar
 1. run `npm i` in the terminal to install all dependencies;
 2. run `npm run dev` or `npm run prod` to compile unminified and minified assets respectively.
 
-task files are made available in `tools/tasks`.
+compiled assets will automatically be generated in the `dist/` folder, where all other static assets can be found.
+
+task files can be found in `tools/tasks`.
