@@ -1,4 +1,4 @@
-import Rectangle from './components/Rectangle';
+// import Rectangle from './components/Rectangle';
 import tweens from './tweens';
 
 const sketch = (p) => {
@@ -13,15 +13,15 @@ const sketch = (p) => {
     p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
 
-        tileSize = 30;
-        cols = Math.round(p.width / tileSize);
-        rows = Math.round(p.height / tileSize);
+        // tileSize = 30;
+        // cols = Math.round(p.width / tileSize);
+        // rows = Math.round(p.height / tileSize);
 
-        for (let i = 0; i < cols; i++) {
-            for (let j = 0; j < rows; j++) {
-                // rects[j+(i*rows)] = new Rectangle(i, j, cols, rows, p);
-            }
-        }
+        // for (let i = 0; i < cols; i++) {
+        //     for (let j = 0; j < rows; j++) {
+        //         rects[j+(i*rows)] = new Rectangle(i, j, cols, rows, p);
+        //     }
+        // }
     };
 
     p.draw = () => {
