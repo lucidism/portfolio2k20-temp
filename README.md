@@ -4,8 +4,6 @@ a simple GLSL-based one-pager for the time being, until I publish a full digital
 
 code is made available publicly as reference under the MIT license.
 
----
-
 ## how to use this repository
 
 styles are written in SCSS in `src/sass` and compiled with node-sass; scripts are written in ES6 in `src/js` and compiled with Webpack/Babel. by default, they're not compiled, so you will need to:
