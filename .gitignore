@@ -1,7 +1,9 @@
+# gitkeep
+!*/.gitkeep
+
+# basic folders
 node_modules
 dist/css
 dist/js
-
 # fonts
 dist/assets/fonts/*
-!.gitkeep
