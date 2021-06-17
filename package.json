@@ -36,7 +36,7 @@
     "fs-extra": "^9.0.0",
     "glslify-loader": "^2.0.0",
     "node-sass": "^4.14.0",
-    "postcss": "^7.0.29",
+    "postcss": "^7.0.36",
     "raw-loader": "^4.0.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
